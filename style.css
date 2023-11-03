@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --color-light-blue: hsl(196, 100%, 98%);
+    --color-dark-blue: hsl(195, 91%, 25%);
+    --color-opacity-blue: rgba(255, 255, 255, 0.20);
+}
+
+html, body, input, .artigos a {
+    font-family: 'Mulish', sans-serif;
+}
+
+body::before {
+    background-color: var(--color-dark-blue);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: '';
+    width: 100%;
+    height: 7.6rem;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+#page {
+    width: min(112rem, 100%);  
+    margin: 0 auto;
+}
+
+header {    
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-dark-blue);  
+    width: 100%;
+    padding: 1.6rem 2.2rem;   
+    gap: 2.5rem;
+}
+
+form {
+    width: 100%;
+    
+}
+
+.input-wrapper label {
+    position: absolute;
+    overflow: hidden;    
+    width: 1px;
+    height: 1px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 4.0rem;
+    background-color: var(--color-opacity-blue);
+    border: 0;
+    border-radius: .4rem;
+    padding: 1.2rem;
+
+    color: white;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+input::placeholder {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+main .img-princ {
+    width: 100%;    
+    margin-bottom: 3.1rem;
+}
+
+section {
+    padding: 0 2.2rem;
+}
+
+h1, h2 {
+    font-size: 2.4rem;
+    line-height: 3.8rem;
+    font-weight: 700; 
+}
+
+section p {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}   
+
+.btn-like button {
+    background: white;
+    margin: .8rem 0 3.1rem;
+    border: 0;       
+}
+
+.btn-like {
+    display: flex;
+    gap: 1.2rem;    
+}
+
+aside {    
+    padding: 3.4rem 0 0 3.4rem;
+}
+
+.artigos {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 3.2rem;
+
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;    
+}
+
+.artigos a {
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.artigos a:hover {
+    color: var(--color-dark-blue);
+}
+
+.box-text p {     
+    max-width: 22rem;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    margin-top: .5rem;
+}
+
+.box-img {
+    height: 8.4rem;
+    overflow: hidden;
+    border-radius: .4rem;
+}
+
+.box-img img {
+    aspect-ratio: 16/9;
+    object-fit: cover;    
+    transition: all .6s ease-out;    
+}
+
+.box-img img:hover {
+    filter: hue-rotate(7deg) contrast(101%) saturate(200%) ;
+    transform: scale(1.1);
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-dark-blue);
+    padding: 1.6rem 0;   
+    margin-top: 3.9rem;
+
+    color: white;
+    font-size: 1.6rem;    
+}
+
+@media (min-width: 770px) {
+    body {
+        background-color: var(--color-light-blue);
+    }
+
+    #page {
+        display: grid;
+        grid-template-areas:
+        "header header header"
+        "main main aside"
+        "footer footer footer";
+
+        min-width: 121.8rem;     
+    }
+
+    header {
+        grid-area: header;
+        padding: 1.6rem 0;  
+    }
+    
+    main {
+        grid-area: main;
+        min-width: 80rem;
+    }
+
+    .img-princ {
+        margin-top: 4.4rem;
+    }
+
+    .box-btn {
+        display: flex;     
+        justify-content: space-between;   
+        align-items: center;                
+        margin-bottom: 3.2rem;
+    }
+
+    .box-btn .btn-like button {
+        margin: 0;        
+    }
+
+    section {
+        padding: 0;
+    }
+    
+    aside {
+        grid-area: aside;
+        min-width: 45rem;      
+    }
+        
+    footer {        
+        grid-area: footer;
+        width: 100%;    
+    }
+}
+
+@keyframes appear {
+    0% {
+      opacity: 0%;  
+      transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
